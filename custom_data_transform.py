@@ -20,7 +20,7 @@ json_data = json.loads(file_content)
 
 
 
-Process each data object
+# Process each data object
 for data in json_data:
     entity_id = data['entity_id']
     file_name = f"{entity_id}.json"
