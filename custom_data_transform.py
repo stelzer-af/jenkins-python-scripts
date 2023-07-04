@@ -26,7 +26,7 @@ for data in json_data:
     file_name = f"{entity_id}.json"
     print("Entity ID:", entity_id)
     
-    filtered_data = [obj for obj in data if obj.get('entity_id') == entity_id]
+    filtered_data = [obj for obj in data if obj['entity_id'] == entity_id]
 
     print("Filtered data:", filtered_data)
 
