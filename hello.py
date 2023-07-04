@@ -16,20 +16,20 @@ file_content = s3_object['Body'].read().decode('utf-8')
 print("File content:", file_content)
 
 # Parse the JSON content
-# json_data = json.loads(file_content)
+json_data = json.loads(file_content)
 
-# # Process each data object
-# for data in json_data:
-#     entity_id = data['entity_id']
-#     file_name = f"{entity_id}.json"
-#     print("Entity ID:", entity_id)
+# Process each data object
+for data in json_data:
+    entity_id = data['entity_id']
+    file_name = f"{entity_id}.json"
+    print("Entity ID:", entity_id)
 
-#     # Convert the data to JSON string
-#     json_str = json.dumps(data)
+    # Convert the data to JSON string
+    json_str = json.dumps(data)
 
-#     # Write the data to a file
-#     with open(file_name, 'w') as file:
-#         file.write(json_str)
+    # Write the data to a file
+    with open(file_name, 'w') as file:
+        file.write(json_str)
 
 #     # Upload the file to S3
 #     s3_client.upload_file(file_name, s3_bucket, file_name)
