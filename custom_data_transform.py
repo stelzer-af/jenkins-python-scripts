@@ -18,7 +18,12 @@ print("File content:", file_content)
 # Parse the JSON content
 json_data = json.loads(file_content)
 
-grouped_data = group_by_entity_id(json_data)
+grouped_data = {}
+    for obj in data:
+        entity_id = obj['entity_id']
+        if entity_id not in grouped_data:
+            grouped_data[entity_id] = []
+        grouped_data[entity_id].append(obj)
 
 print("Grouped data:", grouped_data)
 
@@ -38,12 +43,3 @@ print("Grouped data:", grouped_data)
 #     # Upload the file to S3
 #     s3_client.upload_file(file_name, s3_bucket, file_name)
 
-
-def group_by_entity_id(data):
-    grouped_data = {}
-    for obj in data:
-        entity_id = obj['entity_id']
-        if entity_id not in grouped_data:
-            grouped_data[entity_id] = []
-        grouped_data[entity_id].append(obj)
-    return grouped_data
