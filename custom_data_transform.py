@@ -19,11 +19,11 @@ print("File content:", file_content)
 json_data = json.loads(file_content)
 
 grouped_data = {}
-    for obj in data:
-        entity_id = obj['entity_id']
-        if entity_id not in grouped_data:
-            grouped_data[entity_id] = []
-        grouped_data[entity_id].append(obj)
+for obj in data:
+    entity_id = obj['entity_id']
+    if entity_id not in grouped_data:
+        grouped_data[entity_id] = []
+    grouped_data[entity_id].append(obj)
 
 print("Grouped data:", grouped_data)
 
