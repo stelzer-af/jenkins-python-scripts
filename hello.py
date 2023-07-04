@@ -31,5 +31,5 @@ for data in json_data:
     with open(file_name, 'w') as file:
         file.write(json_str)
 
-#     # Upload the file to S3
-#     s3_client.upload_file(file_name, s3_bucket, file_name)
+    # Upload the file to S3
+    s3_client.upload_file(file_name, s3_bucket, file_name)
