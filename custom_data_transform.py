@@ -36,18 +36,18 @@ yesterday = today - datetime.timedelta(days=1)
 for entity_id, objects in grouped_data.items():
     for obj in objects:
         # Check if created_at > yesterday or updated_at > yesterday or if deleted_at > yesterday
-        if (obj['created_at'] is not None and datetime.datetime.strptime(obj['created_at'], '%Y-%m-%d').date() > yesterday) or \
-           (obj['updated_at'] is not None and datetime.datetime.strptime(obj['updated_at'], '%Y-%m-%d').date() > yesterday) or \
-           (obj['deleted_at'] is not None and datetime.datetime.strptime(obj['deleted_at'], '%Y-%m-%d').date() > yesterday):
-            json_array = json.dumps(obj)
-            file_name = f"{entity_id}.json"
-            
-            # Write the data to a file
-            with open(file_name, 'w') as file:
-                file.write(json_array)
+    # if (obj['created_at'] is not None and datetime.datetime.strptime(obj['created_at'], '%Y-%m-%d').date() > yesterday) or \
+    #     (obj['updated_at'] is not None and datetime.datetime.strptime(obj['updated_at'], '%Y-%m-%d').date() > yesterday) or \
+    #     (obj['deleted_at'] is not None and datetime.datetime.strptime(obj['deleted_at'], '%Y-%m-%d').date() > yesterday):
+        json_array = json.dumps(obj)
+        file_name = f"{entity_id}.json"
+        
+        # Write the data to a file
+        with open(file_name, 'w') as file:
+            file.write(json_array)
 
-            # Upload the file to S3
-            s3_client.upload_file(file_name, s3_bucket, file_name)
+        # Upload the file to S3
+        s3_client.upload_file(file_name, s3_bucket, file_name)
 
 # We can use sync. It will be faster.
 # s3_client.sync(local_directory, s3_bucket)
