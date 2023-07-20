@@ -4,7 +4,7 @@ import datetime
 
 # Set your S3 bucket and object key
 s3_bucket = 'studentcustomdata'
-s3_object_key = 'all_custom_data/custom_data.tsv'
+s3_object_key = 'all_custom_data/part_0.tsv'
 
 # Initialize the S3 client
 s3_client = boto3.client('s3')
