@@ -36,9 +36,9 @@ yesterday = today - datetime.timedelta(days=1)
 for entity_id, objects in grouped_data.items():
     for obj in objects:
         # Check if created_at > yesterday or updated_at > yesterday or if deleted_at > yesterday
-        if (obj['created_at'] is not None and obj['created_at'].date() > yesterday) or \
-           (obj['updated_at'] is not None and obj['updated_at'].date() > yesterday) or \
-           (obj['deleted_at'] is not None and obj['deleted_at'].date() > yesterday):
+        if (obj['created_at'] is not None and datetime.datetime.strptime(obj['created_at'], '%Y-%m-%d').date() > yesterday) or \
+           (obj['updated_at'] is not None and datetime.datetime.strptime(obj['updated_at'], '%Y-%m-%d').date() > yesterday) or \
+           (obj['deleted_at'] is not None and datetime.datetime.strptime(obj['deleted_at'], '%Y-%m-%d').date() > yesterday):
             json_array = json.dumps(obj)
             file_name = f"{entity_id}.json"
             
