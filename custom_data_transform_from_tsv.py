@@ -3,8 +3,8 @@ import json
 import datetime
 
 # Set your S3 bucket and object key
-s3_bucket = 'studentcustomdata/all_custom_data'
-s3_object_key = 'part_0.tsv'
+s3_bucket = 'studentcustomdata'
+s3_object_key = 'all_custom_data/custom_data.tsv'
 
 # Initialize the S3 client
 s3_client = boto3.client('s3')
