@@ -36,13 +36,13 @@ yesterday = today - datetime.timedelta(days=1)
 for entity_id, objects in grouped_data.items():
     for obj in objects:
         # Convert date string to datetime object
-        created_at = datetime.datetime.strptime(obj['created_at'], '%Y-%m-%d').date()
+        # created_at = datetime.datetime.strptime(obj['created_at'], '%Y-%m-%d').date()
 
-        # Check if created_at > yesterday
-        if created_at > yesterday:
-            # Create a JSON string
-            json_str = json.dumps(obj)
+        # # Check if created_at > yesterday
+        # if created_at > yesterday:
+        #     # Create a JSON string
+        json_str = json.dumps(obj)
 
-            # Upload the file to S3
-            file_name = f"{entity_id}.json"
-            s3_client.put_object(Body=json_str, Bucket=s3_bucket, Key=file_name)
+        # Upload the file to S3
+        file_name = f"{entity_id}.json"
+        s3_client.put_object(Body=json_str, Bucket=s3_bucket, Key=file_name)
