@@ -13,8 +13,8 @@ pipeline {
           sh 'pip3 install boto3'
 
           // Run the Python script
-          sh 'python3 custom_data_transform_from_tsv.py'
-          // sh 'python3 custom_data_transform.py'
+          // sh 'python3 custom_data_transform_from_tsv.py'
+          sh 'python3 custom_data_transform.py'
         }
       }
     }
