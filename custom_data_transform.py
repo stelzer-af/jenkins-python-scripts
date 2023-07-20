@@ -1,7 +1,6 @@
 import boto3
 import json
 import datetime
-import tqdm
 
 # Set your S3 bucket and object key
 s3_bucket = 'studentcustomdata'
@@ -34,7 +33,7 @@ today = datetime.date.today()
 # Calculate yesterday's date
 yesterday = today - datetime.timedelta(days=1)
 
-for entity_id, objects in tqdm(grouped_data.items()):
+for entity_id, objects in grouped_data.items():
     for obj in objects:
         # Check if created_at > yesterday or updated_at > yesterday or if deleted_at > yesterday
         if (obj['created_at'] is not None and obj['created_at'].date() > yesterday) or \
