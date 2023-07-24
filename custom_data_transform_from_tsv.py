@@ -21,7 +21,7 @@ for line in file_content.splitlines():
 # Get the headers from the first row
 headers = tsv_data[0]
 
-print(tsv_data[1])
+print(tsv_data[:1])
 
 # Group objects by entity_id
 grouped_data = {}
